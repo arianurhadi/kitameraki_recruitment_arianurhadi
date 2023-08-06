@@ -13,10 +13,10 @@ class TaskCreate extends Component {
         }
     }
 
-    storeTask = (e) => {
+    addTask = (e) => {
         e.preventDefault();
         let task = {title: this.state.title, description: this.state.description};
-        console.log('employee => ' + JSON.stringify(task));
+        console.log('task => ' + JSON.stringify(task));
 
         // TaskService.createTask(task).then(res =>{
         //     this.props.history.push('/tasks');
@@ -49,7 +49,7 @@ class TaskCreate extends Component {
                             </div>
                         </div>
                         <div className="col-md-12 d-flex">
-                            <PrimaryButton text="Add Task" className='mt-3 ms-auto' onClick={this.storeTask} />
+                            <PrimaryButton text="Add Task" className='mt-3 ms-auto' onClick={this.addTask} />
                         </div>
                     </div>
                 </form>
