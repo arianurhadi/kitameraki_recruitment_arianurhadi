@@ -20,17 +20,18 @@ function TaskCreate() {
         
         //define a new task
         const task = values;
-
-        setTimeout(()=>{
-            TaskService.createTask(task).then(res =>{
-                toast.success("A new Task has been created!")
+        TaskService.createTask(task).then(res =>{
+            toast.success("A new Task has been created!")
+            
+            setTimeout(()=>{
+                setIsLoading(false)
                 navigate('/task');
-                setIsLoading(false)
-            }).catch(error => {
-                toast.error('There was an error!', error);
-                setIsLoading(false)
-            });
-        },100)
+            },100)
+           
+        }).catch(error => {
+            toast.error('There was an error!', error);
+            setIsLoading(false)
+        });
     }
     
     //set for validate form
