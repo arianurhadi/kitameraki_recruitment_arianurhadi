@@ -1,7 +1,7 @@
 const fs = require('fs')
 const getNewId = (array) => {
     if (array.length > 0) {
-        return array[array.length - 1].id + 1
+        return array[0].id + 1
     } else {
         return 1
     }
@@ -30,9 +30,18 @@ function writeJSONFile(filename, content) {
     })
 }
 
+function sortBy(array, type) {
+    if (type == 'DESC') {
+        return array.sort(function(a, b){return new Date(b.createdAt) - new Date(a.createdAt)})
+    } else {
+        return array.sort(function(a, b){return new Date(a.createdAt) - new Date(b.createdAt)})
+    }
+}
+
 module.exports = {
     getNewId,
     newDate,
     mustBeInArray,
-    writeJSONFile
+    writeJSONFile,
+    sortBy,
 }

@@ -10,7 +10,9 @@ router.get('/', m.pagination(5), async (req, res) => {
     const { startIndex, endIndex } = req.pagination;
 
     await task.getTasks()
-    .then(tasks => res.json(tasks.slice(startIndex, endIndex)))
+    .then(tasks => 
+        res.json(tasks.slice(startIndex, endIndex))
+    )
     .catch(err => {
         if (err.status) {
             res.status(err.status).json({ message: err.message })
@@ -68,7 +70,7 @@ router.delete('/:id', m.mustBeInteger, async (req, res) => {
 
     await task.deleteTask(id)
     .then(task => res.json({
-        message: `The task #${id} has been deleted`
+        message: `The task #${id} has been deleted`, task
     }))
     .catch(err => {
         if (err.status) {

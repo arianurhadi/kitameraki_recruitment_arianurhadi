@@ -10,7 +10,7 @@ function getTasks() {
                 status: 202
             })
         }
-        resolve(tasks)
+        resolve(helper.sortBy(tasks, 'DESC'))
     })
 }
 function getTask(id) {
@@ -28,7 +28,7 @@ function insertTask(newTask) {
             updatedAt: helper.newDate()
         } 
         newTask = { ...id, ...date, ...newTask }
-        tasks.push(newTask)
+        tasks = [newTask, ...tasks]
         helper.writeJSONFile(filename, tasks)
         resolve(newTask)
     })
@@ -54,7 +54,7 @@ function deleteTask(id) {
     return new Promise((resolve, reject) => {
         helper.mustBeInArray(tasks, id)
         .then(() => {
-            tasks = tasks.filter(t => t.id !== id)
+            tasks = tasks.filter((t) => t.id !== parseInt(id))
             helper.writeJSONFile(filename, tasks)
             resolve()
         })
