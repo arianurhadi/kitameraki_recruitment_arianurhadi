@@ -10,7 +10,7 @@ export default function Home() {
                 <div className="card">
                     <div className="card-body text-center py-5">
                         <h2 className="fw-bold">TASK MANAGEMENT APP</h2>
-                        <NavLink className="btn btn-primary mt-4" to='/task'>
+                        <NavLink className="btn btn-primary mt-4" to='/task/create'>
                             Create Your Task Now!
                         </NavLink>
                     </div>
