@@ -5,9 +5,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand" href="#">
-            Task Management App
-        </a>
+        <NavLink className='navbar-brand fw-bold text-primary' to='/'>TMA</NavLink>
         <button
           className="navbar-toggler"
           type="button"
