@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Editable = ({ childRef, text, type, placeholder, children, ...props }) => {
+const Editable = ({ childRef, text, type, placeholder, children, onUpdate, ...props }) => {
 
     const [isEditing, setEditing] = useState(false);
 
@@ -21,14 +21,20 @@ const Editable = ({ childRef, text, type, placeholder, children, ...props }) => 
         (type !== "textarea" && allKeys.indexOf(key) > -1)
       ) {
         setEditing(false);
+        onUpdate()
       }
     };
+
+    const handleBlur = () => {
+      setEditing(false)
+      onUpdate()
+    }
 
     return (
       <section {...props}>
         {isEditing ? (
           <div
-            onBlur={() => setEditing(false)}
+            onBlur={handleBlur}
             onKeyDown={e => handleKeyDown(e, type)}
           >
             {children}
