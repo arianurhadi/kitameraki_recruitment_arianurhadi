@@ -28,7 +28,10 @@ const ComponentList = ({ components, snapshot }) => {
                                             snapshot.isDragging,
                                             provided.draggableProps.style,
                                         )}>
-                                        <Component item={item}/>
+                                        <Component item={item} style={getItemStyle(
+                                            snapshot.isDragging,
+                                            provided.draggableProps.style,
+                                        )}/>
                                     </div>
                                 </div>
                                 )}

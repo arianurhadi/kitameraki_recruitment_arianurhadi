@@ -92,7 +92,9 @@ const getRenderItem = (items) => (provided, snapshot, rubric) => {
           ref={provided.innerRef}
           style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
         >
-          <Component item={item}/>
+          <Component item={item} style={getItemStyle(
+                                            snapshot.isDragging,
+                                        )}/>
         </div>
       </React.Fragment>
     );
