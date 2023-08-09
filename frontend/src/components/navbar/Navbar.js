@@ -29,6 +29,11 @@ export default function Navbar() {
                 Task
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/setting">
+                Setting
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

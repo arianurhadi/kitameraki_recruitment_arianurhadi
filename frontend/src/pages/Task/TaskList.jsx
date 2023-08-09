@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout';
 import { NavLink } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import Spinner from '../../components/Spinner';
+import OptionalDataList from '../../components/optionalField/OptionalDataList';
 
 function TaskList() {
 
@@ -141,45 +142,50 @@ function TaskList() {
                         <div className="card mb-3" key = {task.id}>
                             <div className="card-body">
                                 <div className="row align-items-center">
-                                    <div className="col-md-3">
-                                        <Editable
-                                            text={task.title}
-                                            placeholder="write a task title"
-                                            childRef={inputTitle}
-                                            type="input"
-                                            className="h6"
-                                            onUpdate={() => updateTask(task.id, { title: inputTitle.current.value })}
-                                            >
-                                            <TextField
-                                                ref={inputTitle}
-                                                type="text"
-                                                name="title"
-                                                placeholder="write a task title"
-                                                value={task.title}
-                                                onChange={e => editTask(task.id, { title: e.target.value })}
-                                            />
-                                        </Editable>
-                                        <p className='text-muted mb-0'>Title</p>
-                                    </div>
-                                    <div className="col-md-6">
-                                    <Editable
-                                            text={task.description}
-                                            placeholder="write a task title"
-                                            childRef={inputDescription}
-                                            type="textarea"
-                                            className="h6"
-                                            onUpdate={() => updateTask(task.id, { description: inputDescription.current.value })}
-                                            >
-                                            <TextField
-                                                multiline
-                                                ref={inputDescription}
-                                                name="description"
-                                                placeholder="write a task title"
-                                                value={task.description}
-                                                onChange={e => editTask(task.id, { description: e.target.value })}
-                                            />
-                                        </Editable>
-                                        <p className='text-muted mb-0'>Description</p>
+                                    <div className="col-md-9">
+                                        <div className='row'>
+                                            <div className="col-md-4">
+                                                <Editable
+                                                    text={task.title}
+                                                    placeholder="write a task title"
+                                                    childRef={inputTitle}
+                                                    type="input"
+                                                    className="h6"
+                                                    onUpdate={() => updateTask(task.id, { title: inputTitle.current.value })}
+                                                    >
+                                                    <TextField
+                                                        ref={inputTitle}
+                                                        type="text"
+                                                        name="title"
+                                                        placeholder="write a task title"
+                                                        value={task.title}
+                                                        onChange={e => editTask(task.id, { title: e.target.value })}
+                                                    />
+                                                </Editable>
+                                                <p className='text-muted mb-0'>Title</p>
+                                            </div>
+                                            <div className="col-md-8">
+                                                <Editable
+                                                    text={task.description}
+                                                    placeholder="write a task title"
+                                                    childRef={inputDescription}
+                                                    type="textarea"
+                                                    className="h6"
+                                                    onUpdate={() => updateTask(task.id, { description: inputDescription.current.value })}
+                                                    >
+                                                    <TextField
+                                                        multiline
+                                                        ref={inputDescription}
+                                                        name="description"
+                                                        placeholder="write a task title"
+                                                        value={task.description}
+                                                        onChange={e => editTask(task.id, { description: e.target.value })}
+                                                    />
+                                                </Editable>
+                                                <p className='text-muted mb-0'>Description</p>
+                                            </div>
+                                        </div>
+                                        <OptionalDataList task={task}/>
                                     </div>
                                     <div className="col-md-3">
                                         <button style={{marginLeft: "10px"}} onClick={ () => deleteTask(task.id)} className="btn btn-danger">Delete </button>

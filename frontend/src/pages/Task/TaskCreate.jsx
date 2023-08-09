@@ -8,6 +8,7 @@ import useForm from '../../hooks/useForm';
 import toast, { Toaster } from 'react-hot-toast';
 import Layout from '../../layouts/Layout';
 import Spinner from '../../components/Spinner';
+import OptionalFieldList from '../../components/optionalField/OptionalFieldList';
 
 function TaskCreate() {
 
@@ -64,6 +65,7 @@ function TaskCreate() {
                                     }
                                 </div>
                             </div>
+                            <OptionalFieldList/>
                             <div className="col-md-12 d-flex">
                                 <div className='mt-3 ms-auto'>
                                     { isLoading ? <Spinner isLoading={isLoading} /> : <PrimaryButton text="Add Task" type='submit'/>}

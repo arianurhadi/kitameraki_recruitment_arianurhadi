@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {omit} from 'lodash'
-import Toast, { toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const useForm = (callback) => {
 
