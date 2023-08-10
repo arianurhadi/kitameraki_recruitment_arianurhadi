@@ -26,3 +26,9 @@ Clone the repository from https://github.com/arianurhadi/kitameraki_recruitment_
 2. Start the server <code>npm start</code>
 
 3. The server will run on port 3000 <code>http://localhost:3000</code>
+
+## Access Test Part 1
+<pre> git checkout part_one </pre>
+
+## Access Test Part 2
+<pre> git checkout part_two </pre>
