@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Field from "../formBuilder/Field";
 import { Label } from "@fluentui/react";
 
-const OptionalFieldList = () => {
+const OptionalFieldList = ({handleChange, values}) => {
     const [fields, setFields] = useState([])
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const OptionalFieldList = () => {
                 <div key={field.id} className="col-md-12">
                     <div className="form-group w-100">
                         <Label>{field.label ? field.label : field.type + ' field'}</Label>
-                        <Field field={field}/>
+                        <Field field={field} handleChange={handleChange} values={values}/>
                     </div>
                 </div>
                 )

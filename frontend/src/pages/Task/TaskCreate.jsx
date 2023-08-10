@@ -65,7 +65,7 @@ function TaskCreate() {
                                     }
                                 </div>
                             </div>
-                            <OptionalFieldList/>
+                            <OptionalFieldList values={values} handleChange={handleChange}/>
                             <div className="col-md-12 d-flex">
                                 <div className='mt-3 ms-auto'>
                                     { isLoading ? <Spinner isLoading={isLoading} /> : <PrimaryButton text="Add Task" type='submit'/>}
